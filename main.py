@@ -33,11 +33,9 @@ telegram.setArbitrator(arbitrator)
 threads = list()
 for exchange in EXCHANGES:
     pairs = exchange.getPairs()
-    pairs = pairs[:50]
     print('Numero de pares:', len(pairs))
     thread = Thread(target=arbitrator.run, args=[pairs, exchange], name=f'{exchange}-Thread')
     threads.append(thread)
-    thread.start() # eliminar
 
 # Telegram Thread
 threadTelegram = Thread(target=telegram.run, name='Telegram-Thread')

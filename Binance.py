@@ -94,6 +94,8 @@ class Binance(Exchange):
     def getPairs(self):
         pairs = self.client.get_all_tickers()
         pairs = [pair['symbol'] for pair in pairs if pair['symbol'].endswith(BASE)]
+        stableCoins = ('USDC', 'TUSD', 'BUSD', 'USDP', 'GUSDT')
+        pairs = [pair for pair in pairs if not pair.startswith(stableCoins)]
         return pairs
 
     def getAllCoins(self):

@@ -9,6 +9,7 @@ from utils.simulation import simulate
 from Trade import Trade
 from Chance import Chance
 from Strategy import squeeze_strategy
+import random
 from time import sleep
 
 
@@ -24,6 +25,7 @@ class Arbitrator:
 
     def run(self, pairs, exchange):
         while True:
+            random.shuffle(pairs)
             for pair in pairs:
                 try:
                     # Obtiene información
