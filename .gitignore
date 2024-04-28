@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-*.pyc
-.idea/.name
-=======
-*.pyc
->>>>>>> live
-.env
-.idea/*
-
+.idea/
+__pycache__/
